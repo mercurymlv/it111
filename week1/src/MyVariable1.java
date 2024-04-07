@@ -43,7 +43,7 @@ public class MyVariable1 {
             System.out.println("We will have to wait a spell!");
         }
 
-
+        //
 
     }
 }
