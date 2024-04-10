@@ -38,12 +38,15 @@ public class MyVariable1 {
         boolean dry = true;
 
         if(dry){
-            System.out.println("Time to hand up those curtins!");
+            System.out.println("Time to hang up those curtins!");
         } else {
             System.out.println("We will have to wait a spell!");
         }
 
         //
+        char best = 'A';
+        System.out.println(++best);
+
 
     }
 }
