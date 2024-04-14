@@ -2,29 +2,29 @@ public class MyOperators {
 
     public static void main(String[] args){
 
-//        // Arithmetic operators
-//        // Employee, wage, hours worked, overtime, the whole enchilada
-//
-//        int regHours, overtimeHours;
-//        double overtimePay, regPay, total;
-//        float wage;
-//        double hourlyWithOvertime;
-//
-//        regHours = 40;
-//        overtimeHours = 5;
-//        wage = 25.50F;
-//        regPay = regHours * wage;
-//        overtimePay = (wage * 1.5) * overtimeHours;
-//        total = regPay + overtimePay;
-//        hourlyWithOvertime = total / (regHours + overtimeHours);
-//
-//        System.out.println("Regular Pay: $" + regPay + " dollars");
-//        System.out.println("Overtime Pay: $" + overtimePay + " dollars");
-//        System.out.println("Total Pay: $" + total + " dollars");
-//        //System.out.println("Hourly rate with overtime: $" + hourlyWithOvertime + " dollars");
-//        System.out.print("Hourly rate with overtime: ");
-//        System.out.printf("$%.2f",hourlyWithOvertime);
-//        System.out.println(" dollars/hr");
+        // Arithmetic operators
+        // Employee, wage, hours worked, overtime, the whole enchilada
+
+        int regHours, overtimeHours;
+        double overtimePay, regPay, total;
+        float wage;
+        double hourlyWithOvertime;
+
+        regHours = 40;
+        overtimeHours = 5;
+        wage = 25.50F;
+        regPay = regHours * wage;
+        overtimePay = (wage * 1.5) * overtimeHours;
+        total = regPay + overtimePay;
+        hourlyWithOvertime = total / (regHours + overtimeHours);
+
+        System.out.println("Regular Pay: $" + regPay + " dollars");
+        System.out.println("Overtime Pay: $" + overtimePay + " dollars");
+        System.out.println("Total Pay: $" + total + " dollars");
+        //System.out.println("Hourly rate with overtime: $" + hourlyWithOvertime + " dollars");
+        System.out.print("Hourly rate with overtime: ");
+        System.out.printf("$%.2f",hourlyWithOvertime);
+        System.out.println(" dollars/hr");
 
 
 // Modulus operator
@@ -60,7 +60,7 @@ public class MyOperators {
         double priceOfItem = 100;
         priceOfItem *= 1.10;
 
-        System.out.println("Total price of item is $" + priceOfItem + " dollars");
+        //System.out.println("Total price of item is $" + priceOfItem + " dollars");
         System.out.print("Total price of item is ");
         System.out.printf("$%.2f",priceOfItem);
         System.out.println(" dollars");
