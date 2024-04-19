@@ -9,17 +9,30 @@ public class GallonsLiters {
 
         for(gallons = 1; gallons <= 100; gallons += 4){
             liters = gallons * 3.78541;
-            System.out.print("Liters ");
+
+            // Adding this check for singular/plural liters just to be safe
+            if (liters == 1){
+                System.out.print("Liter ");
+            } else {
+                System.out.print("Liters ");
+            }
+
             System.out.printf("%.2f",liters);
             System.out.print(" = ");
             System.out.printf("%.2f",gallons);
-            System.out.println(" Gallons");
+
+            // Use an IF to see if gallons should be singular or plural
+            if (gallons == 1){
+                System.out.println(" Gallon");
+            } else {
+                System.out.println(" Gallons");
+            }
 
             // Use IF and a counter to add a blank line after each block of 5 lines
             // Use modulus to figure out if the counter is a multiple of 5 (i.e. remainder will be zero)
             if(counter % 5 == 0){
                 System.out.println("");
-            } // end if
+            }
             counter++;
         } // end for
 
@@ -28,3 +41,4 @@ public class GallonsLiters {
     } // end main
 
 }
+
