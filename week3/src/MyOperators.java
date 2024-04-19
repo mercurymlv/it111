@@ -58,9 +58,11 @@ public class MyOperators {
 //        double priceOfItem = 100;
         // tax is 10%
         double priceOfItem = 100;
+
+        // multiply price to add extra 10%
         priceOfItem *= 1.10;
 
-        //System.out.println("Total price of item is $" + priceOfItem + " dollars");
+        // Print results to the screen
         System.out.print("Total price of item is ");
         System.out.printf("$%.2f",priceOfItem);
         System.out.println(" dollars");
