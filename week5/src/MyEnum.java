@@ -24,12 +24,12 @@ public class MyEnum {
             System.out.print("Seahawks win by ");
             System.out.print(seahawks-broncos+ " points!");
         } else if (broncos > seahawks) {
-            who = WhoWins.VISITOR; // WhoWins.Home is an object of the WhoWins type
+            who = WhoWins.VISITOR; // WhoWins.Visitor is an object of the WhoWins type
             System.out.println(who+ " team won!");
             System.out.print("Broncos win by ");
             System.out.print(broncos-seahawks+ " points!");
         } else {
-            who = WhoWins.NEITHER; // WhoWins.Home is an object of the WhoWins type
+            who = WhoWins.NEITHER; // WhoWins.Neither is an object of the WhoWins type
             System.out.println(who+ " team won!");
             System.out.println("It's a tie!");
         }
