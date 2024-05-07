@@ -22,7 +22,4 @@ public class SimpleWindow extends JFrame {
 
     }
 
-
-
-
 }
