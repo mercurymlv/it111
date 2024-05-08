@@ -11,7 +11,6 @@ public class ShowWindow2 {
 
 
         // Create a window
-
         // similar to how we set up user inputs
         // scanner input = new Scanner(System.in);
         JFrame window = new JFrame();
@@ -22,8 +21,10 @@ public class ShowWindow2 {
         // set the size
         window.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
 
-        // Set the location - I want it to be centered in the screen
+        // Set the location - I want it to be centered in the screen regardless of size/resolution
         // I googled this to get the screen size from the system
+        // Source: https://stackoverflow.com/questions/2442599/how-to-set-jframe-to-appear-centered-regardless-of-monitor-resolution
+
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
         // my window's position coordinates
@@ -50,14 +51,14 @@ public class ShowWindow2 {
 
         // Change font and size
         // Source: https://www.tabnine.com/code/java/methods/javax.swing.JComponent/setFont
-        Font myFont = new Font("Aptos", Font.PLAIN, 20);
-        Font myFont2 = new Font("Times New Roman", Font.BOLD, 18);
+        Font myFont = new Font("Aptos", Font.BOLD, 20);
+        Font myFont2 = new Font("Times New Roman", Font.PLAIN, 18);
 
         myLabel.setFont(myFont);
         myLabel2.setFont(myFont2);
 
-        // add the labels and boxes to the frame
 
+        // add the labels and boxes to the frame
         window.add(myLabel);
         window.add(myTextField);
         window.add(myLabel2);

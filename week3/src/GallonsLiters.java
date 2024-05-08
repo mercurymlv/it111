@@ -10,7 +10,7 @@ public class GallonsLiters {
         for(gallons = 1; gallons <= 100; gallons += 4){
             liters = gallons * 3.7854;
 
-            System.out.printf("%.2f",liters);
+            System.out.print("%.2f",liters);
             // Adding this check for singular/plural liters just to be safe
             if (liters == 1){
                 System.out.print(" Liter");
@@ -21,9 +21,6 @@ public class GallonsLiters {
 
             System.out.print(" = ");
             System.out.printf("%.1f",gallons);
-
-
-
 
             // Use an IF to see if gallons should be singular or plural
             if (gallons == 1){

@@ -64,7 +64,6 @@ public class dailySpecials {
         // we start taking the order here
 
         int qty;
-        double total;
 
         Scanner order = new Scanner(System.in);
         System.out.println("How many " +coffee+ "s would you like to order?");
