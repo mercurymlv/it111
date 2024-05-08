@@ -12,8 +12,8 @@ public class ShowWindow {
 
         // similar to how we set up user inputs
         // scanner input = new Scanner(System.in);
-
         JFrame window = new JFrame();
+
         // set the title
         window.setTitle("My Simple Window");
 
