@@ -1,9 +1,11 @@
 import java.util.Scanner;
 
+
 public class dailySpecials {
     public static void main(String[] args){
 
         String specials;
+
 
         Scanner input = new Scanner(System.in);
 
@@ -11,19 +13,32 @@ public class dailySpecials {
         specials = input.next();
         //    input.close();
 
+        // I wrote a separate method to change the case so that the first letter is capitalized and the rest is in lowercase
+        specials = firstLetterCaps(specials);
+
+
+
         // in the world of coffee, I need a name of a coffee bev and a price
-        // I was getting an error that coffee and price were "not initiated"
-        // I googled this and I think it's because they are only assigned in the switch statement
-        // so I just gave them default values
-        String coffee = "";
-        double price = 0;
+        String coffee;
+        double price;
 
-        boolean saturday = specials.equals("Saturday");
-        boolean sunday = specials.equals("Sunday");
+        // My first idea was to convert everything to lowercase when checking the day so that I don't have to worry about case
+        // I was using "toLowerCase" but IntelliJ suggested "equalsIgnoreCase()" instead
+        boolean saturday = specials.equalsIgnoreCase("Saturday");
+        boolean sunday = specials.equalsIgnoreCase("Sunday");
 
-        if (saturday || sunday){
+        // Change this from an "if" to a "while" to force a weekday choice
+        while (saturday || sunday){
             System.out.println("Please enter a weekday, not weekend: ");
             specials = input.next();
+
+            // Change the case formatting again
+            specials = firstLetterCaps(specials);
+
+            // Re-evaluate the Sat/Sun booleans again
+            saturday = specials.equalsIgnoreCase("Saturday");
+            sunday = specials.equalsIgnoreCase("Sunday");
+
         } //end if
 
 
@@ -81,5 +96,19 @@ public class dailySpecials {
         }
 
     } // end main
+
+
+    // This method will separate the input string (the day) into the first letter and remaining letters
+    // The first letter gets capitalized, the remaining letters are set to lowercase
+    // Concat them back together and return
+    public static String firstLetterCaps(String specials){
+        String specialsFirstLetter;
+        String specialsAfterFirstLetter;
+
+        specialsFirstLetter = specials.substring(0,1).toUpperCase();
+        specialsAfterFirstLetter = specials.substring(1).toLowerCase();
+
+        return specialsFirstLetter + specialsAfterFirstLetter;
+    }
 
 }
