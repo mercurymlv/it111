@@ -48,10 +48,10 @@ public class Person {
         return adjustedRate;
     }
 
-public double evalAge (double adjustedRateCar){
+    public double evalAge (double adjustedRateCar){
         // apply an extra fee if car is more than 5 years old
         // we're going to get a little fancy and punish older cars
-        // and add $25 for every 5 years of the cars age
+        // add $25 for every 5 years of the cars age
         if(car <= currentYear-5){
             int carFactor = (currentYear - car) / 5;
             adjustedRateCar = 25 * carFactor;
