@@ -11,7 +11,9 @@ public class PersonDetails {
 
         // need to enter add'l variables
         int states = 0;
-        double surchange = 0;
+        double surcharge = 0;
+        double adjustedRate = 0;
+        double monthlyRate = 0;
 
 
         // we will be initializing add'l variables right here
@@ -50,8 +52,12 @@ public class PersonDetails {
         customer.display();
 
         customer.identifyRegion(states);
-        System.out.println("Your regional surcharge is " +customer.californiaRegion(surchange)+ " dollars");
+        System.out.println("Your state surcharge is " +customer.californiaRegion(surcharge)+ " dollars");
 
+        System.out.println("Age category adjustment: " +customer.ageCategory(adjustedRate)+ " dollars");
+        System.out.println("Violations and credit score adjustment: " +customer.getRate(monthlyRate)+ " dollars");
+
+        System.out.println("Your total monthly premium is: " + (customer.baselineRate + customer.ageCategory(adjustedRate) + customer.californiaRegion(surcharge) + customer.getRate(monthlyRate)) + " dollars");
 
     } // end main
 }
