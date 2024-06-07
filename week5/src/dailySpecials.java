@@ -4,81 +4,76 @@ import java.util.Scanner;
 public class dailySpecials {
     public static void main(String[] args){
 
-        String specials;
-
-
+        // Declare our variables
+        String specials = "";
+        // in the world of coffee, I need a name of a coffee bev and a price
+        String coffee = "";
+        double price = 0;
+        // A scanner to input the day from the user
         Scanner input = new Scanner(System.in);
 
-        System.out.println("Please enter a day of the week (except weekends) Monday thru Friday: ");
-        specials = input.next();
-        //    input.close();
-
-        // I wrote a separate method to change the case so that the first letter is capitalized and the rest is in lowercase
-        specials = firstLetterCaps(specials);
+        // instead of specifically checking for Saturday or Sunday, I will just check to see if the entry-
+        // is a valid weekday and if not then repeat the prompt
+        // this will cover typos and gobbledygook entries too
+        boolean valid = false;
 
 
-
-        // in the world of coffee, I need a name of a coffee bev and a price
-        String coffee;
-        double price;
-
-        // My first idea was to convert everything to lowercase when checking the day so that I don't have to worry about case
-        // I was using "toLowerCase" but IntelliJ suggested "equalsIgnoreCase()" instead
-        boolean saturday = specials.equalsIgnoreCase("Saturday");
-        boolean sunday = specials.equalsIgnoreCase("Sunday");
-
-        // Change this from an "if" to a "while" to force a weekday choice
-        while (saturday || sunday){
+        // The while loop will repeat until we have a valid weekday entry
+        while (!valid){
             System.out.println("Please enter a weekday, not weekend: ");
             specials = input.next();
-
-            // Change the case formatting again
+            // I wrote a separate method to change the case so that the first letter is capitalized and the rest is in lowercase
             specials = firstLetterCaps(specials);
 
-            // Re-evaluate the Sat/Sun booleans again
-            saturday = specials.equalsIgnoreCase("Saturday");
-            sunday = specials.equalsIgnoreCase("Sunday");
+            switch (specials) {
+                // my cases will have a day of the week
+                case "Monday" -> {
+                    coffee = "Latte";
+                    price = 4.95;
+                    valid = true;
+                }
+                case "Tuesday" -> {
+                    coffee = "Frappe";
+                    //price = 5.95;
+                    price = 4.95;
+                    valid = true;
+                }
+                case "Wednesday" -> {
+                    coffee = "Cappuccino";
+                    price = 4.35;
+                    valid = true;
+                }
+                case "Thursday" -> {
+                    coffee = "Regular Joe";
+                    //price = 2.95;
+                    price = 1.00;
+                    valid = true;
+                }
+                case "Friday" -> {
+                    coffee = "Green Tea Latte";
+                    price = 6.95;
+                    valid = true;
+                }
+                default -> {
+                    // Not sure that I need anything here...
+                    // System.out.println("Invalid input. Please enter a valid weekday.");
 
-        } //end if
+                }
+            } // end switch
+        } //end while
 
+        // I moved this out of the switch just to reduce the number of lines
+        System.out.print(specials + "'s Coffee Of The Day is a " + coffee + " and the price will be $");
+        System.out.printf("%.2f dollars%n", price);
 
-        switch (specials) {
-            // my cases will have a day of the week
-            case "Monday" -> {
-                coffee = "Latte";
-                price = 4.95;
-                System.out.println(specials + "'s Coffee Of The Day is a " + coffee + " and the price will be $" + price);
-            }
-            case "Tuesday" -> {
-                coffee = "Frappe";
-                price = 5.95;
-                System.out.println(specials + "'s Coffee Of The Day is a " + coffee + " and the price will be $" + price);
-            }
-            case "Wednesday" -> {
-                coffee = "Cappuccino";
-                price = 4.35;
-                System.out.println(specials + "'s Coffee Of The Day is a " + coffee + " and the price will be $" + price);
-            }
-            case "Thursday" -> {
-                coffee = "Regular Joe";
-                price = 2.95;
-                System.out.println(specials + "'s Coffee Of The Day is a " + coffee + " and the price will be $" + price);
-            }
-            case "Friday" -> {
-                coffee = "Green Tea Latte";
-                price = 6.95;
-                System.out.println(specials + "'s Coffee Of The Day is a " + coffee + " and the price will be $" + price);
-            }
-            default -> {
-                System.out.println("Please enter a valid day or check your spelling");
-                // I had to google this one...otherwise it continued to ask for quantity
-                return;
-            }
-        } // end switch
 
         // we start taking the order here
 
         int qty;
+        // I'm using constants to make the math more user-friendly when applying the discount
+        final double DISCOUNT_10 = 0.90;
+        final double DISCOUNT_20 = 0.80;
+
 
         Scanner order = new Scanner(System.in);
         System.out.println("How many " +coffee+ "s would you like to order?");
@@ -87,10 +82,21 @@ public class dailySpecials {
         if(qty == 0) {
             System.out.println("Looks like you don't like " + coffee + "s. So sad!!!");
         } else if (qty == 1) {
-            System.out.println("Looks like you will be ordering only 1 " +coffee+ " today!");
-        } else if (qty > 1) {
+            System.out.print("Looks like you will be ordering only 1 " +coffee+ " today totalling $" );
+            System.out.printf("%.2f dollars!",qty*price);
+        } else if (qty > 1 && qty <5) {
             System.out.print(qty+ " " + coffee + "s have been ordered totalling $");
             System.out.printf("%.2f dollars!",qty*price);
+        } else if (qty >=5 && qty <10) {
+            System.out.print("Looks like you qualify for a group discount! Your regular price is $");
+            System.out.printf("%.2f dollars.%n",qty*price);
+            System.out.print("You have ordered " +qty+ " " + coffee + "s but will only be charged $");
+            System.out.printf("%.2f dollars!",(qty*price)*DISCOUNT_10);
+        } else if (qty >= 10) {
+            System.out.print("You are getting the super group discount! Your regular price is $");
+            System.out.printf("%.2f dollars.%n",qty*price);
+            System.out.print("You have ordered " +qty+ " " + coffee + "s but will only be charged $");
+            System.out.printf("%.2f dollars!",(qty*price)*DISCOUNT_20);
         } else {
             System.out.println("Sorry, I don't understand how many you want");
         }
