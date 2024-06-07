@@ -56,7 +56,9 @@ public class dailySpecials {
                 }
                 default -> {
                     // Not sure that I need anything here...
-                    // System.out.println("Invalid input. Please enter a valid weekday.");
+                    // I have this error line to print out if necessary
+                    // but it's not in the video
+                    // System.out.println("Invalid choice. Please enter a valid weekday.");
 
                 }
             } // end switch
